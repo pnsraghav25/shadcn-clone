@@ -15,9 +15,11 @@ import Payment from './Payment'
 import Report from './Report'
 import Share from './Share'
 import { Card } from './ui/card'
+import { DateRange } from 'react-day-picker'
 
 const Showcase = () => {
-  const [selected, setSelected] = React.useState<Date[] | undefined>();
+  const [selected, setSelected] = React.useState<DateRange | undefined>();
+  
 
   return (
     <div id='showcase'>

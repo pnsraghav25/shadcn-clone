@@ -432,7 +432,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         const selectedTheme = themes[colorTheme];
         const themeData = theme === 'light' ? selectedTheme.light : selectedTheme.dark;
 
-        Object.keys(themeData).forEach((key) => {
+        (Object.keys(themeData) as (keyof typeof themeData)[]).forEach((key) => {
             const cssVar = `--${key}`;
             document.getElementById('showcase')?.style.setProperty(cssVar, themeData[key]);
         });
