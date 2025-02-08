@@ -23,25 +23,25 @@ const roles = [
     {
         value: "viewer",
         label: "Viewer",
-        desc : "Can View and Comment."
+        desc: "Can View and Comment."
     },
     {
         value: "developer",
         label: "Developer",
-        desc : "Can view, edit and comment."
+        desc: "Can view, edit and comment."
     },
     {
         value: "billing",
         label: "Billing",
-        desc : "Can view, comment and manage billing."
+        desc: "Can view, comment and manage billing."
     },
     {
         value: "owner",
         label: "Owner",
-        desc : "Admin-level access to all resources."
+        desc: "Admin-level access to all resources."
     },
 ]
-const Comboselect = ({defaultValue} : any) => {
+const Comboselect = ({ defaultValue }: any) => {
 
     const [open, setOpen] = React.useState(false)
     const [value, setValue] = React.useState("")
@@ -62,33 +62,33 @@ const Comboselect = ({defaultValue} : any) => {
             </PopoverTrigger>
             <PopoverContent className="w-[300px] p-0">
                 <Command>
-                    <CommandInput placeholder="Select Role" />
-                    <CommandList>
-                        <CommandEmpty>No role found.</CommandEmpty>
-                        <CommandGroup>
-                            {roles.map((role) => (
-                                <CommandItem
-                                    key={role.value}
-                                    value={role.value}
-                                    onSelect={(currentValue) => {
-                                        setValue(currentValue === value ? "" : currentValue)
-                                        setOpen(false)
-                                    }}
-                                >
-                                    <Check
-                                        className={cn(
-                                            "mr-2 h-4 w-4",
-                                            value === role.value ? "opacity-100" : "opacity-0"
-                                        )}
-                                    />
-                                    <div className="flex flex-col gap-2">
-                                        <p className="font-semibold">{role.label}</p>
-                                        <p className="text-xs text-muted-foreground">{role.desc}</p>
-                                    </div>
-                                </CommandItem>
-                            ))}
-                        </CommandGroup>
-                    </CommandList>
+                        <CommandInput placeholder="Select Role" />
+                        <CommandList>
+                            <CommandEmpty>No role found.</CommandEmpty>
+                            <CommandGroup>
+                                {roles.map((role) => (
+                                    <CommandItem
+                                        key={role.value}
+                                        value={role.value}
+                                        onSelect={(currentValue) => {
+                                            setValue(currentValue === value ? "" : currentValue)
+                                            setOpen(false)
+                                        }}
+                                    >
+                                        <Check
+                                            className={cn(
+                                                "mr-2 h-4 w-4",
+                                                value === role.value ? "opacity-100" : "opacity-0"
+                                            )}
+                                        />
+                                        <div className="flex flex-col gap-2">
+                                            <p className="font-semibold">{role.label}</p>
+                                            <p className="text-xs text-muted-foreground">{role.desc}</p>
+                                        </div>
+                                    </CommandItem>
+                                ))}
+                            </CommandGroup>
+                        </CommandList>
                 </Command>
             </PopoverContent>
         </Popover>
